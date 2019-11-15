@@ -1,1 +1,52 @@
+[Functions]
+is_changed(old,new,num_cluster,labels)
+-Compare the current mode vectors with the new mode vectors to return the change.
+-Parameters
+ 	old (dataframe type): current mode vectors.
+ 	new (dataframe type): new mode vectors.
+ 	num_cluster (an integer greater than or equal to one): The number of clusters to form as well as the number of modes to generate.
+ 	labels (list type): List of column names for dataset used.
+-Returns : Returns 1 if there are changes or returns 0 if no change.
+
+find_vector(x,num_cluster,vectors)
+-Calculate the new mode vectors.
+-Parameters
+ 	x (shape = (n_samples, n_features), dataframe type): Dataset to cluster.
+ 	num_cluster (an integer greater than or equal to one): The number of clusters to form as well as the number of modes to generate.
+ 	vectors (dataframe type): current mode vectors.
+-Returns : Returns new vectors.
+
+
+get_distance(x,data,labels,vector)
+-Calculate the distance between vector and one record of dataset. (dissimilarity measure)
+-Parameters
+ 	x (shape = (n_samples, n_features), dataframe type): Dataset to cluster.
+ 	data (dataframe type): one record of dataset(x) to compute.
+ 	labels (list type): List of column names for dataset used.
+ 	vectors (dataframe type): current mode vector.
+-Returns : Returns the distance computed.
+
+clustering(x,labels,vectors,list_clusters)
+- Calculate the distance from the clusters and do clustering them as clusters with the least distance.
+-Parameters
+ 	x (shape = (n_samples, n_features), dataframe type): Dataset to cluster.
+ 	vectors (dataframe type): current mode vectors.
+ 	labels (list type): List of column names for dataset used.
+ 	list_clusters (list type): List of column names for clusters.
+-Returns : Returns the x completed clustering.
+
+k_modes(x,num_cluster,labels)
+- Do k=modes clustering.
+-Parameters
+ 	x (shape = (n_samples, n_features), dataframe type): Dataset to cluster.
+ 	num_cluster (an integer greater than or equal to one): The number of clusters to form as well as the number of modes to generate.
+ 	labels (list type): List of column names for dataset used.
+-Returns : Returns the x completed k-modes clustering.
+
+purity(clusters, classes)
+- Calculate the purity.
+-Parameters
+ 	clusters (dataframe type): results of clustering.(data[‘flag’])
+ 	classes (dataframe type): real values.(target column)
+-Returns : Returns the result of purity calculation.
 
